@@ -1,29 +1,33 @@
 #!/bin/bash
 
-ap=$(iwconfig) # | grep "Access Point")
-echo $ap
+ap=$(iwconfig)
 
-next="0"
-point=""
+isNext="no"
+mac=""
+essid=""
 
 for token in $ap
 do
-  if ["$next" == "1"]
+  if [ "${token:0:6}" == "ESSID:" ]
     then
-      point=$token
+      essid=${token:6}
   fi
-  if ["$token" == "Point:"]
+  if [ "$isNext" == "yes" ]
     then
-      next=1
+      mac=$token
+      isNext="no"
+  fi
+  if [ "$token" == "Point:" ]
+    then
+      isNext="yes"
   fi
 done
 
-echo $point
+essid=${essid#'"'}
+essid=${essid%'"'}
 
-
-#start=$(expr index "$ap" "Access Point")
-
-#echo $start
+echo $mac
+echo $essid
 
 #ap=$(expr substr $ap
 
