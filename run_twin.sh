@@ -56,6 +56,6 @@ sudo ifconfig br0 up
 
 # Start the AP, start sending deauth, start recording
 sudo hostapd /etc/hostapd/hostapd.conf &
-sudo /home/pi/Gencyber_2016_Wireless/run_deauth.sh $iface $mac &
-sudo /home/pi/Gencyber_2016_Wireless/run_tcpdump.sh $iface &
+sudo ./run_deauth.sh $iface $mac &
+sudo ./run_tcpdump.sh $iface &
 
