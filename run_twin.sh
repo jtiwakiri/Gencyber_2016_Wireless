@@ -59,4 +59,4 @@ name=$(date)
 name=${name//" "/"_"}
 name="/home/pi/Desktop/$name"
 
-tcpdump -nnvvXSs -i $iface -w $name
+sudo tcpdump -nnvvXSs -i $iface -w $name
