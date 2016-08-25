@@ -37,6 +37,17 @@ essid=${essid%'"'}
 # Find the interface of the Ralink
 iface=$(sudo airmon-ng | grep "Ralink")
 iface=${iface:0:5}
+for token in $ralinks
+do
+  if [ "$token" != "wlan0" ]
+    then
+      if [ "${token:0:4}" == "wlan" ]
+        then
+          iface=$token
+      fi
+  fi
+done
+
 
 # Edit the /etc/hostapd/hostapd.conf configuration file
 {
