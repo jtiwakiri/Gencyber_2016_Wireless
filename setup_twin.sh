@@ -27,6 +27,7 @@ sudo chmod +x start_twin
 
 #Move the files to the desktop
 mkdir /home/pi/Desktop/Evil_Twin
+mkdir /home/pi/Desktop/Evil_Twin/Capture_Files
 cp run_twin.sh /home/pi/Desktop/Evil_Twin/run_twin.sh
 cp run_deauth.sh /home/pi/Desktop/Evil_Twin/run_deauth.sh
 cp run_tcpdump.sh /home/pi/Desktop/Evil_Twin/run_tcpdump.sh
