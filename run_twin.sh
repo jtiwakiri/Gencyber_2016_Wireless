@@ -40,10 +40,10 @@ iface=${iface:0:5}
 
 # Edit the /etc/hostapd/hostapd.conf configuration file
 {
-  echo "interface=$iface"
-  echo "driver=nl80211"
-  echo "ssid=$essid"
-  echo "channel=6"
+  sudo echo "interface=$iface"
+  sudo echo "driver=nl80211"
+  sudo echo "ssid=$essid"
+  sudo echo "channel=6"
 } > /etc/hostapd/hostapd.conf
 
 # Create the bridge and add the interfaces to it
