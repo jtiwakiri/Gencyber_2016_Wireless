@@ -18,7 +18,7 @@ sudo mv /etc/network/interfaces /etc/network/interfaces2
 } > /etc/network/interfaces
 
 # Set the run_twin script to run at boot
-#sudo chmod 755 run_twin.sh
+sudo chmod +x run_twin.sh
 #sudo mv run_twin.sh /etc/init.d/run_twin.sh
 #sudo update-rc.d -f lightdm remove
 #sudo update-rc.d run_twin.sh defaults
