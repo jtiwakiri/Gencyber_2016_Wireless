@@ -27,9 +27,11 @@ done
 essid=${essid#'"'}
 essid=${essid%'"'}
 
-# Edit the /etc/hostapd/hostapd.conf configuration file
+# Find the interface of the Ralink
 iface=$(sudo airmon-ng | grep "Ralink")
 iface=${iface:0:5}
+
+# Edit the /etc/hostapd/hostapd.conf configuration file
 {
   echo "interface=$iface"
   echo "driver=nl80211"
