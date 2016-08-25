@@ -2,7 +2,7 @@
 
 # Install necessary packages
 sudo apt-get update
-sudo apt-get install hostapd bridge-utils aircrack-ng
+sudo apt-get install -y hostapd bridge-utils aircrack-ng
 
 # Disable automatic network configuration 
 sudo mv /etc/network/interfaces /etc/network/interfaces2
