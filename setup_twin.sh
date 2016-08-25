@@ -18,12 +18,12 @@ sudo mv /etc/network/interfaces /etc/network/interfaces2
 } > /etc/network/interfaces
 
 # Set the run_twin script to run at boot
-sudo chmod +x start_twin.sh
+sudo chmod +x run_twin.sh
 sudo chmod +x run_deauth.sh
 sudo chmod +x run_tcpdump.sh
-sudo cp start_twin.sh /etc/init.d/start_twin.sh
-sudo update-rc.d -f lightdm remove
-sudo update-rc.d start_twin.sh defaults
+sudo chmod +x start_twin
+sudo cp start_twin /etc/init.d/start_twin
+sudo update-rc.d start_twin defaults
 
 # Reboot the pi
 sudo reboot
