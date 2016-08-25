@@ -18,13 +18,16 @@ sudo mv /etc/network/interfaces /etc/network/interfaces2
   sudo echo "iface wlan1 inet manual"
 } > /etc/network/interfaces
 
-# Set the run_twin script to run at boot
+# Make the scripts executable
 sudo chmod +x run_twin.sh
 sudo chmod +x run_deauth.sh
 sudo chmod +x run_tcpdump.sh
 sudo chmod +x start_twin
 #sudo cp start_twin /etc/init.d/start_twin
 #sudo update-rc.d start_twin defaults
+
+# Set ssh server to run on boot
+sudo update-rc.d /etc/init.d/ssh defaults
 
 #Move the files to the desktop
 mkdir /home/pi/Desktop/Evil_Twin
