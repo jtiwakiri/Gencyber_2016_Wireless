@@ -57,6 +57,6 @@ sudo aireplay-ng --deauth 0 -a $mac mon0
 # Record traffic
 name=$(date)
 name=${name//" "/"_"}
-echo $name
+name="/home/pi/Desktop/$name"
 
 tcpdump -nnvvXSs -i $iface -w $name
