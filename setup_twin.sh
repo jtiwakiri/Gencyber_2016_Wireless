@@ -8,6 +8,7 @@ sudo apt-get install -y hostapd bridge-utils aircrack-ng tcpdump
 sudo mv /etc/network/interfaces /etc/network/interfaces2
 
 {
+  sudo echo "source-directory /etc/network/interfaces.d"
   sudo echo "auto lo"
   sudo echo "iface lo inet loopback"
   sudo echo "iface eth0 inet manual"
