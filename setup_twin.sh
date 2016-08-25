@@ -22,8 +22,14 @@ sudo chmod +x run_twin.sh
 sudo chmod +x run_deauth.sh
 sudo chmod +x run_tcpdump.sh
 sudo chmod +x start_twin
-sudo cp start_twin /etc/init.d/start_twin
-sudo update-rc.d start_twin defaults
+#sudo cp start_twin /etc/init.d/start_twin
+#sudo update-rc.d start_twin defaults
+
+#Move the files to the desktop
+mkdir /home/pi/Desktop/Evil_Twin
+cp run_twin.sh /home/pi/Desktop/Evil_Twin/run_twin.sh
+cp run_deauth.sh /home/pi/Desktop/Evil_Twin/run_deauth.sh
+cp run_tcpdump.sh /home/pi/Desktop/Evil_Twin/run_tcpdump.sh
 
 # Reboot the pi
 sudo reboot
