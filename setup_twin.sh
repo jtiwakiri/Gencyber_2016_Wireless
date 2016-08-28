@@ -22,9 +22,11 @@ sudo mv /etc/network/interfaces /etc/network/interfaces2
 sudo chmod +x run_twin.sh
 sudo chmod +x run_deauth.sh
 sudo chmod +x run_tcpdump.sh
-sudo chmod +x start_twin
-#sudo cp start_twin /etc/init.d/start_twin
-#sudo update-rc.d start_twin defaults
+sudo chmod +x evil_twin
+
+# Set evil twin to run at boot
+sudo cp evil_twin /etc/init.d/evil_twin
+#sudo update-rc.d evil_twin defaults
 
 # Set ssh server to run on boot
 sudo update-rc.d /etc/init.d/ssh defaults
