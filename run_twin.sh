@@ -1,6 +1,11 @@
 #!/bin/bash
 
 # Find the essid
+echo "Starting evil twin..."
+
+# Enable sleep for 60 seconds when running on boot
+#sleep 60s
+
 ap=$(iwconfig)
 
 isNext="no"
