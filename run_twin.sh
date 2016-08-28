@@ -35,7 +35,7 @@ essid=${essid#'"'}
 essid=${essid%'"'}
 
 # Find the interface of the Ralink
-iface=$(sudo airmon-ng | grep "Ralink")
+ralinks=$(sudo airmon-ng | grep "Ralink")
 iface=${iface:0:5}
 for token in $ralinks
 do
@@ -67,6 +67,7 @@ sudo ifconfig br0 up
 
 # Start the AP, start sending deauth, start recording
 sudo hostapd /etc/hostapd/hostapd.conf &
-sudo ./run_deauth.sh $iface $mac &
 sudo ./run_tcpdump.sh $iface &
+sudo ./run_deauth.sh $iface $mac &
+
 
