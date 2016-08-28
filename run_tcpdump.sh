@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 5s
+
 # Record traffic
 name=$(date)
 name=${name//" "/"_"}
