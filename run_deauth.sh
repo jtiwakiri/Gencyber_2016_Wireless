@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 5s
+
 #$1 = interface used by hostapd
 #$2 = mac of legitimate AP
 iface=$1
