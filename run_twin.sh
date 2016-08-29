@@ -14,26 +14,19 @@ mac=""
 
 for token in $ap
 do
-  if [ "${token:0:6}" == "ESSID:" ]
+  if [ "${token:0:6}" == "ESSID:" -a  "$essid" == "" ]
     then
-      if [ "$essid" == "" ]
-        then
-          essid=${token:6}
-      fi
+        essid=${token:6}
   fi
-  if [ "$isNext" == "yes" ]
-    then
-      if [ "$mac" == "" ]
-        then
-          mac=$token
-          isNext="no"
-      fi
+  if [ "$isNext" == "yes" -a "$mac" == "" ]
+      then
+        mac=$token
+        isNext="no"
   fi
   if [ "$token" == "Point:" ]
     then
       isNext="yes"
   fi
-
 done
 
 essid=${essid#'"'}
@@ -44,12 +37,9 @@ ralinks=$(sudo airmon-ng | grep "Ralink")
 iface=${iface:0:5}
 for token in $ralinks
 do
-  if [ "$token" != "wlan0" ]
-    then
-      if [ "${token:0:4}" == "wlan" ]
-        then
-          iface=$token
-      fi
+  if [ "$token" != "wlan0" -a "${token:0:4}" == "wlan"]
+      then
+        iface=$token
   fi
 done
 
