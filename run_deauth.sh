@@ -17,12 +17,9 @@ do
     then
       start=${token:0:4}
   fi
-  if [ "$start" == "wlan" ]
+  if [ "$start" == "wlan" -a "$token" != "$1" ]
     then
-      if [ "$token" != "$1" ]
-        then
-          iface=$token
-      fi
+      iface=$token
   fi
 done
 
