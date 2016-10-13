@@ -62,7 +62,7 @@ sudo ifconfig br0 up
 
 # Start the AP, start sending deauth, start recording
 sudo hostapd /etc/hostapd/hostapd.conf &
-sudo ./run_tcpdump.sh $iface &
-#sudo ./run_deauth.sh $iface $mac &
+sudo ./tcpdump.sh $iface &
+#sudo ./deauth.sh $iface $mac &
 
 
