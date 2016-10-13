@@ -34,9 +34,9 @@ sudo update-rc.d /etc/init.d/ssh defaults
 #Move the files to the desktop
 mkdir /home/pi/Desktop/Evil_Twin
 mkdir /home/pi/Desktop/Evil_Twin/Capture_Files
-cp twin.sh /home/pi/Desktop/Evil_Twin/run_twin.sh
-cp deauth.sh /home/pi/Desktop/Evil_Twin/run_deauth.sh
-cp tcpdump.sh /home/pi/Desktop/Evil_Twin/run_tcpdump.sh
+cp twin.sh /home/pi/Desktop/Evil_Twin/twin.sh
+cp deauth.sh /home/pi/Desktop/Evil_Twin/deauth.sh
+cp tcpdump.sh /home/pi/Desktop/Evil_Twin/tcpdump.sh
 
 # Reboot the pi
 sudo reboot
